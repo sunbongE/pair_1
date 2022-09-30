@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+  <h1 class="text-center pt-5">MOVIE REVIEW</h1>
+  <div class="p-3 d-flex justify-content-end">
+    <a class="btn btn-dark text-decoration-none" href="{% url 'crud:new' %}">
+      Create
+    </a>
+  </div>
+  <div class="p-3">
+    <table class="table text-center table-borderless">
+      <thead>
+        <tr class="table-dark">
+          <th scope="col">No.</th>
+          <th scope="col">Title</th>
+          <th scope="col">Edit</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for review in reviews %}
+        <tr class="table-light opacity-50 fw-bold">
+          <th scope="row">{{ forloop.counter }}</th>
+          <td>
+            <a
+              class="text-decoration-none text-dark"
+              href="{% url 'crud:detail' review.pk %}"
+            >
+              {{review.title}}
+            </a>
+          </td>
+          <td class="text-dark">
+            {{ review.updated_at.year }}.{{ review.updated_at.month }}.
+            {{review.updated_at.day }} - {{review.updated_at.hour}} :
+            {{review.updated_at.minute}}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock%}

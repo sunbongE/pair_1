@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container pt-5">
+  <h1 class="text-center mb-3">REVIEW CREATE</h1>
+  <form action="{% url 'crud:create' %}">
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">
+        TITLE
+      </label>
+      <input name="title" type="text" class="form-control" maxlength="10" />
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">
+        CONTENT
+      </label>
+      <textarea type="text" name="content" class="form-control" ></textarea>
+    </div>
+    <div class="d-grid gap-2">
+      <input class="btn btn-outline-primary" type="submit" value="Create"></input>
+    </div>
+  </form>
+</div>
+
+{% endblock%}

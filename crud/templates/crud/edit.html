@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block content %}
+
+
+<div class="container pt-5">
+  <h1 class="text-center mb-3">REVIEW EDIT</h1>
+  <form action="{% url 'crud:update' review.pk %}">
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">
+        TITLE
+      </label>
+      <input name="title" type="text" class="form-control" maxlength="10" value="{{ review.title }}" />
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">
+        CONTENT
+      </label>
+      <textarea type="text" name="content" class="form-control">{{ review.content }}</textarea>
+    </div>
+    <div class="d-grid gap-2">
+      <input class="btn btn-outline-primary" type="submit" value="EDIT"></input>
+      <a type="button" class="btn btn-outline-dark px-5" href="{% url 'crud:index' %}"><span class="fw-bold">BACK</span></a>
+    </div>
+  </form>
+  
+</div>
+{% endblock%}
