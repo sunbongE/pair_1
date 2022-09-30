@@ -21,15 +21,20 @@ def create(request):
     content = request.GET.get("content")
     title = request.GET.get("title")
 
+    if title == '' :
+        title = 'Secret'
+    if content =='':
+        content = 'I don\'t remember, but I want to write a review'
+
+    print(title)
+    print(content)
+    
     Review.objects.create(
         content=content,
         title=title,
     )
 
-    context = {
-        "content": content,
-        "title": title,
-    }
+  
     return redirect("crud:index")
 
 
